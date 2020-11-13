@@ -14,9 +14,9 @@ class App extends Component {
 		   command:() => this.props.history.push('/')
 		},
 		{
-			label:'Login',
+			label:'Imagens',
 			icon:'pi pi-fw pi-login',
-			command:() => this.props.history.push('/login')
+			command:() => this.props.history.push('/image')
 		 },
 		 {
 			label:'Comentários',

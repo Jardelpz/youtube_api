@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import ImageList from './ImageList'
 
 class PostForm extends Component {
     constructor(props){
         super(props)
 		this.state = {
-			userId: '',
 			title: '',
-			body: ''
+			posts: [],
+			isLoading: false,
+			error: null
 		}
 	}
 
@@ -17,11 +19,21 @@ class PostForm extends Component {
 
 	submitHandler = e => {
 		e.preventDefault()
-		console.log(this.state)
+		this.setState({isLoading: true})
 		axios
-			.post('https://jsonplaceholder.typicode.com/posts', this.state)
+			.get('https://youtube.googleapis.com/youtube/v3/search', { 
+				params: {
+					q: this.state.title,
+					key: 'AIzaSyBTgWzn1m8oOCYN0c4qDrjsktoqxmtvV6s',
+					part: 'snippet',
+					maxResults: 10
+
+				}})
 			.then(response => {
-				console.log(response)
+				this.setState({
+							posts: response.data.items,
+							isLoading: false
+							})
 			})
 			.catch(error => {
 				console.log(error)
@@ -29,37 +41,32 @@ class PostForm extends Component {
 	}
 
 	render() {
-		const { userId, title, body } = this.state
+		const { title, isLoading, error, posts } = this.state
 		return (
 			<div class="form-post">
 				<form onSubmit={this.submitHandler}>
 					<div>
-						<input
-							type="text"
-							name="userId"
-							value={userId}
-							onChange={this.changeHandler}
-						/>
-					</div>
-					<div>
-						<input
+						Tema: <input
 							type="text"
 							name="title"
 							value={title}
 							onChange={this.changeHandler}
 						/>
 					</div>
-					<div>
-						<input
-							type="text"
-							name="body"
-							value={body}
-							onChange={this.changeHandler}
-						/>
-					</div>
+					
 					<button type="submit">Submit</button>
 				</form>
+
+				<div>
+					{error ? <p>{error.message}</p> : null}
+					{!isLoading ? (
+						<ImageList images={this.state.posts} />
+					) : (
+						<h3>Loading...</h3>
+					)}
+				</div>
 			</div>
+
 		)
 	}
 }

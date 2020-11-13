@@ -6,4 +6,8 @@ npm install primereact --save
 npm install primeicons --save
 npm install classnames --save
 npm install react-router-dom --save
-npm install react-router --save ff
+npm install react-router --save
+
+ir até console.developers do google ativar a api do youtube data v3
+
+chave api = AIzaSyBTgWzn1m8oOCYN0c4qDrjsktoqxmtvV6s
