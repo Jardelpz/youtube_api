@@ -5,3 +5,22 @@
 .images {
     margin: 20px 0px 0 20px;
 }
+
+.loading {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center ;
+    width: 100vw;
+    height: 100vh;
+    border: none;
+}
+
+.gif {
+    width: 25vw;
+    height: 25vh;
+}
+
+.table-categoria {
+    padding: 50px;
+}

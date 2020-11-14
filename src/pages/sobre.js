@@ -1,9 +1,9 @@
 import React from 'react';
+import GetCategorias from '../components/GetCategorias'
 
 const Sobre = () => (
     <div className="title">
-        <h4>Sobre</h4>
-        <p>Aqui estão as informações a meu respeito</p>
+       <GetCategorias />
     </div>
 );
 

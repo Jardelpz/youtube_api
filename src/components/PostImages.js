@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import ImageList from './ImageList'
+import Load from './Load'
 
 class PostForm extends Component {
     constructor(props){
@@ -62,7 +63,7 @@ class PostForm extends Component {
 					{!isLoading ? (
 						<ImageList images={this.state.posts} />
 					) : (
-						<h3>Loading...</h3>
+						<Load />
 					)}
 				</div>
 			</div>
