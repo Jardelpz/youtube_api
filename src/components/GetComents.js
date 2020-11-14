@@ -10,7 +10,7 @@ export default function GetComentario(props) {
 	// const [error, setError] = useState("")
 
 	useEffect(()=> {
-		getCategories();
+		getComments();
 	}, [])
 
 	function getComments(){
@@ -48,5 +48,6 @@ export default function GetComentario(props) {
 		// 		<Load />
 		// 	)}
 		// </div>
+		<div>sfd</div>
 	)
 }	
