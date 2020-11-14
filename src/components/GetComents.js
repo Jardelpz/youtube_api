@@ -1,40 +1,52 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios'
-class PostList extends Component {
-	constructor(props) {
-		super(props)
+import CategoiasList from './CategoriasList'
+import Load from './Load'
 
-		this.state = {
-      posts: [],
-      errorMsg: ''
-		}
+export default function GetComentario(props) {
+   
+	// const [categorias, setCategorias] = useState([])
+	// const [Loading, setLoading] = useState(false)
+	// const [error, setError] = useState("")
+
+	useEffect(()=> {
+		getCategories();
+	}, [])
+
+	function getComments(){
+		// setLoading(true)
+		// 	axios
+		// 		.get('https://youtube.googleapis.com/youtube/v3/videoCategories', { 
+		// 			params: {
+		// 				key: 'AIzaSyBTgWzn1m8oOCYN0c4qDrjsktoqxmtvV6s',
+		// 				part: 'snippet',
+		// 				maxResults: 10,
+		// 				regionCode: "BR"
+
+
+		// 			}})
+		// 		.then(response => {
+		// 			console.log(response.data.items)
+		// 			setCategorias(response.data.items)
+		// 			setLoading(false)
+		// 		})
+		// 		.catch(error => {
+		// 			setError(error)
+		// 			console.log(error)
+		// 		})
+		return
 	}
 
-	componentDidMount() {
-		axios
-			.get('https://jsonplaceholder.typicode.com/posts')
-			.then(response => {
-				console.log(response)
-				this.setState({ posts: response.data })
-			})
-			.catch(error => {
-        console.log(error)
-        this.setState({errorMsg: 'Error retrieving data'})
-			})
-	}
 
-	render() {
-		const { posts, errorMsg } = this.state
-		return (
-			<div class="list-post">
-				List of posts
-				{posts.length
-					? posts.map(post => <div key={post.id}>{post.title}</div>)
-          : null}
-        {errorMsg ? <div>{errorMsg}</div> : null}
-			</div>
-		)
-	}
-}
-
-export default PostList
+	return (
+		
+		// <div>
+		// 	{error ? <p>{error.message}</p> : null}
+		// 	{!Loading ? (
+		// 		<CategoiasList categorias={categorias} />
+		// 	) : (
+		// 		<Load />
+		// 	)}
+		// </div>
+	)
+}	

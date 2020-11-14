@@ -34,6 +34,7 @@ export default function GetCategorias(props) {
 					setError(error)
 					console.log(error)
 				})
+				
 		}
 
 
