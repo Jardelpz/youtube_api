@@ -1,0 +1,20 @@
+yarn create-react-app my-app
+cd my-app
+npm start
+npm i axios
+npm install primereact --save 
+npm install primeicons --save
+npm install classnames --save
+npm install react-router-dom --save
+npm install react-router --save
+npm install @material-ui/core
+npm install react-input-switch --save
+
+ir até console.developers do google ativar a api do youtube data v3
+
+chave api = AIzaSyCFaTZgGLuy4XEEgyOe4y_J9imRK4miRr8
+
+id client = 288241924769-03i9fmo3lmlcscr6ssarl57krnmv2cdv.apps.googleusercontent.com
+chave_secreta = Mhv35GnXnYciez1cVPtrCqE_
+
+acess_token= 4/1AY0e-g6qfwfEXz-ox3W9wMjC3roCV_QBCHnnSrbUL5rKQXjTAMuTgfs6mn4
