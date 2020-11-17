@@ -3,7 +3,8 @@ import '../../src/style.css'
 
 const ImageList = (props) => {
   const images = props.images.map((image) => {
-    return <img src={image.snippet.thumbnails.medium.url} class="images" />;
+    var url = "https://www.youtube.com/watch?v="+image.id.videoId
+    return <a href={url} target="_blank"> <img src={image.snippet.thumbnails.medium.url} class="images" /> </a>;
   });
 
   return <div class="list-images">{images}</div>;

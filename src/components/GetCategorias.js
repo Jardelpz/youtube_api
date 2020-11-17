@@ -18,7 +18,7 @@ export default function GetCategorias(props) {
 			axios
 				.get('https://youtube.googleapis.com/youtube/v3/videoCategories', { 
 					params: {
-						key: 'AIzaSyBTgWzn1m8oOCYN0c4qDrjsktoqxmtvV6s',
+						key: 'AIzaSyCFaTZgGLuy4XEEgyOe4y_J9imRK4miRr8',
 						part: 'snippet',
 						maxResults: 10,
 						regionCode: "BR"

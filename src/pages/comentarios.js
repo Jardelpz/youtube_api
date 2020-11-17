@@ -1,9 +1,9 @@
 import React from 'react';
-import GetComents from './../components/GetComents'
+import PostComents from './../components/PostComents'
 
 const Comentario = () => (
     <div className="comentario">
-        <GetComents />
+        <PostComents />
     </div>
 );
 
