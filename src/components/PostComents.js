@@ -1,7 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios'
 import Load from './Load'
-import Switch from 'react-input-switch';
 
 class GetComentario extends Component {
 
@@ -19,55 +18,7 @@ class GetComentario extends Component {
 		}
 	}
 
-	like = e => {
-		e.preventDefault()
-		axios({
-			method: 'post',
-			url: 'http://127.0.0.1:5000/like',
-			data: { 
-				"action": 'like',
-				"videoId": this.state.videoId }
-			})
-			.then(response => {
-				this.setState({
-							message_like: response.data.message,
-							isLoading: false
-							})
-			})
-			.catch(error => {
-				this.setState({
-					error: error,
-					isLoading: false
-					})
-				console.log(error)
-			})
-	}
 
-
-	dislike = e => {
-		e.preventDefault()
-		axios({
-			method: 'post',
-			url: 'http://127.0.0.1:5000/like',
-			data: { 
-				"action": 'dislike',
-				"videoId": this.state.videoId }
-			})
-			.then(response => {
-				this.setState({
-							message_like: response.data.message,
-							isLoading: false
-							})
-			})
-			.catch(error => {
-				this.setState({
-					error: error,
-					isLoading: false
-					})
-				console.log(error)
-			})
-	
-	}
 
 	changeHandler = e => {
 		this.setState({ [e.target.name]: e.target.value })
@@ -103,7 +54,7 @@ class GetComentario extends Component {
 
 
 	render() {
-		const { message_coment, message_like, channelId, videoId, comment, isLoading, like, error } = this.state
+		const { message_coment, channelId, videoId, comment, isLoading, like, error } = this.state
 		return (
 			<div class="form-post">
 				<form onSubmit={this.submitHandler}>
@@ -137,22 +88,13 @@ class GetComentario extends Component {
 					<button type="submit">Submit</button>
 
 				</form>
-				
-  				
-				<button type="submit" onClick={this.like}>Like</button>
-				<button type="submit" onClick={this.dislike}>Dislike</button>
 
 				<div>
 					{error ? <p>{error.message}</p> : null}
 					{!isLoading ? (
-						<div>
 							<h2>
 								{message_coment}
 							</h2>
-							<h3>
-								{message_like}
-							</h3>
-						</div>
 
 					) : (
 						<Load />
