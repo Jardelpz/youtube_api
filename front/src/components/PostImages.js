@@ -46,7 +46,7 @@ class PostForm extends Component {
 			.get('https://youtube.googleapis.com/youtube/v3/search', { 
 				params: {
 					q: this.state.title,
-					key: 'AIzaSyCFaTZgGLuy4XEEgyOe4y_J9imRK4miRr8',
+					key: 'your_key',
 					part: 'snippet',
 					maxResults: 10
 

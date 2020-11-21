@@ -13,10 +13,3 @@ npm i react-chartjs-2
 npm i chart.js
 
 ir até console.developers do google ativar a api do youtube data v3
-
-chave api = AIzaSyCFaTZgGLuy4XEEgyOe4y_J9imRK4miRr8
-
-id client = 288241924769-03i9fmo3lmlcscr6ssarl57krnmv2cdv.apps.googleusercontent.com
-chave_secreta = Mhv35GnXnYciez1cVPtrCqE_
-
-acess_token= 4/1AY0e-g6qfwfEXz-ox3W9wMjC3roCV_QBCHnnSrbUL5rKQXjTAMuTgfs6mn4

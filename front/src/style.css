@@ -4,13 +4,7 @@
 }
 
 .list_of_images {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.images {
-    margin: 20px 0px 0 20px;
+    margin: 2vh 0vw 10vh 0vw;
 }
 
 .loading {
