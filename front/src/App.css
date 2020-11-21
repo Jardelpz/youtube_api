@@ -19,7 +19,13 @@ header {
 
 .form-post, .list-post {
   text-align: center;
+  margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.form-post button {
+  margin-top: 1rem;
+  margin-bottom: 5rem;
 }
 
 .chart {
