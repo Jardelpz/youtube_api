@@ -9,6 +9,8 @@ npm install react-router-dom --save
 npm install react-router --save
 npm install @material-ui/core
 npm install react-input-switch --save
+npm i react-chartjs-2
+npm i chart.js
 
 ir até console.developers do google ativar a api do youtube data v3
 

@@ -1,5 +1,12 @@
 .list-images {
     padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.list_of_images {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .images {

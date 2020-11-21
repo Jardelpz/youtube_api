@@ -3,20 +3,41 @@ import axios from 'axios'
 import ImageList from './ImageList'
 import Load from './Load'
 
+
 class PostForm extends Component {
     constructor(props){
         super(props)
 		this.state = {
 			title: '',
 			posts: [],
+			graphicData: [],
 			isLoading: false,
 			error: null
 		}
 	}
 
+	load_graphic_data = (res) => {
+		this.setState({isLoading: true})
+		axios({
+			method: 'post',
+			url: 'http://127.0.0.1:5000/subs',
+			data: res.items })
+
+			.then(response => {
+				this.setState({
+					graphicData: response.data.channels,
+					isLoading: false
+				})
+			})
+			.catch(error => {
+			  console.log(error)
+			})
+	}
+
 	changeHandler = e => {
 		this.setState({ [e.target.name]: e.target.value })
 	}
+
 
 	submitHandler = e => {
 		e.preventDefault()
@@ -25,7 +46,7 @@ class PostForm extends Component {
 			.get('https://youtube.googleapis.com/youtube/v3/search', { 
 				params: {
 					q: this.state.title,
-					key: 'your_acess_token',
+					key: 'AIzaSyCFaTZgGLuy4XEEgyOe4y_J9imRK4miRr8',
 					part: 'snippet',
 					maxResults: 10
 
@@ -35,6 +56,7 @@ class PostForm extends Component {
 							posts: response.data.items,
 							isLoading: false
 							})
+				this.load_graphic_data(response.data);
 			})
 			.catch(error => {
 				console.log(error)
@@ -42,7 +64,7 @@ class PostForm extends Component {
 	}
 
 	render() {
-		const { title, isLoading, error, posts } = this.state
+		const { title, isLoading, error, posts, graphicData } = this.state
 		return (
 			<div class="form-post">
 				<form onSubmit={this.submitHandler}>
@@ -60,8 +82,17 @@ class PostForm extends Component {
 
 				<div>
 					{error ? <p>{error.message}</p> : null}
+					
 					{!isLoading ? (
-						<ImageList images={this.state.posts} />
+						<div>
+							{graphicData ? (
+								<ImageList images={this.state.posts} graphicData={this.state.graphicData}/>
+							):(
+								<p> </p>
+							)}
+						</div>
+
+						
 					) : (
 						<Load />
 					)}
