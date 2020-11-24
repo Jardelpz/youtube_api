@@ -12,6 +12,7 @@ class PostForm extends Component {
 			posts: [],
 			graphicData: [],
 			isLoading: false,
+			showData: false,
 			error: null
 		}
 	}
@@ -26,7 +27,8 @@ class PostForm extends Component {
 			.then(response => {
 				this.setState({
 					graphicData: response.data.channels,
-					isLoading: false
+					isLoading: false,
+					showData: true
 				})
 			})
 			.catch(error => {
@@ -64,7 +66,7 @@ class PostForm extends Component {
 	}
 
 	render() {
-		const { title, isLoading, error, posts, graphicData } = this.state
+		const { title, isLoading, error, posts, graphicData, showData } = this.state
 		return (
 			<div class="form-post">
 				<form onSubmit={this.submitHandler}>
@@ -84,15 +86,9 @@ class PostForm extends Component {
 					{error ? <p>{error.message}</p> : null}
 					
 					{!isLoading ? (
-						<div>
-							{graphicData ? (
-								<ImageList images={this.state.posts} graphicData={this.state.graphicData}/>
-							):(
-								<p> </p>
-							)}
+						<div style={{display:  showData ? 'block' : 'none'} }>
+							<ImageList images={this.state.posts} graphicData={this.state.graphicData}/>
 						</div>
-
-						
 					) : (
 						<Load />
 					)}

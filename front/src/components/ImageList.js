@@ -39,15 +39,8 @@ export default function ImageList(props) {
   
   return <div class="list-images">
       <div> 
-      {images? (
-        <div>
           <Chart chartData={props.graphicData} />
-          {images}
-        </div>
-      ):(
-        <p>loading..</p>
-      )}
-      
+          {images}      
       </div>
    
   </div>;
